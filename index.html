@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's For Dinner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="What's For Dinner home">
+        <span class="brand-icon">🍴</span>
+        <span><strong>What's For Dinner</strong><small>Your daily meal inspiration</small></span>
+      </a>
+      <div class="header-actions">
+        <button id="savedButton" class="header-icon" aria-label="Saved recipes" title="Saved recipes">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>
+        </button>
+        <button id="historyButton" class="header-icon" aria-label="Recent recipes" title="Recent recipes">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5M12 7v5l3 2"/></svg>
+        </button>
+        <button id="settingsButton" class="header-icon" aria-label="Settings" title="Settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM4 10l-2 2 2 2 1 3 3 1 2 3h4l2-3 3-1 1-3 2-2-2-2-1-3-3-1-2-3h-4L8 6 5 7l-1 3z"/></svg>
+        </button>
+        <button id="profileButton" class="profile-button" aria-label="Open user profile" title="My profile"><span id="profileInitials">HC</span><img id="profileAvatar" src="images/profile.jpg" alt="" hidden></button>
+        <div id="headerPanel" class="header-panel" hidden></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <article class="recipe-card">
+      <section class="recipe-photo" aria-label="Recipe photo and timing">
+        <div id="photoFallback" class="photo-fallback"><span id="foodEmoji">🍝</span></div>
+        <img id="recipeImage" class="food-image" alt="" hidden>
+        <div class="rating-chip">⭐ <strong id="rating">4.8</strong> <span id="reviewCount">(234 reviews)</span></div>
+        <div class="time-card">
+          <div><span class="metric-icon orange">◷</span><small>Prep Time</small><strong id="prepTime">—</strong></div>
+          <div><span class="metric-icon red">♨</span><small>Cook Time</small><strong id="cookTime">—</strong></div>
+          <div><span class="metric-icon blue">♟</span><small>Servings</small><strong id="servings">—</strong></div>
+        </div>
+      </section>
+
+      <section class="recipe-details">
+        <div class="title-row">
+          <div class="title-block">
+            <div class="badges"><span id="difficulty" class="badge difficulty">Easy</span><span id="category" class="badge category">Italian</span></div>
+            <h1 id="recipeName">Chicken Pasta</h1>
+            <p id="recipeDescription">A delicious meal for dinner.</p>
+          </div>
+          <div class="recipe-actions">
+            <button id="bookmarkRecipe" class="square-button" aria-label="Save this recipe" title="Save recipe">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>
+            </button>
+            <button id="shareRecipe" class="square-button" aria-label="Share this recipe" title="Share recipe">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="19" r="2"/><path d="M8 11l8-5M8 13l8 5"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="prepWarning" class="prep-warning" role="status" hidden>
+          <span class="warning-symbol">⚠</span>
+          <div><strong>Extended Preparation Time</strong><p>This recipe requires more than 45 minutes to prepare. Plan accordingly!</p></div>
+        </div>
+
+        <div class="tab-buttons" role="tablist" aria-label="Recipe information">
+          <button class="tab active" data-tab="ingredients" role="tab" aria-selected="true">☷ <span>Ingredients</span></button>
+          <button class="tab" data-tab="instructions" role="tab" aria-selected="false">▣ <span>Instructions</span></button>
+          <button class="tab" data-tab="nutrition" role="tab" aria-selected="false">◕ <span>Nutrition</span></button>
+          <button class="tab" data-tab="tips" role="tab" aria-selected="false">♟ <span>Chef's Tips</span></button>
+        </div>
+
+        <div id="tabContent" class="tab-content" role="tabpanel" aria-live="polite"></div>
+        <div class="bottom-actions"><button id="nextRecipe" class="random-button">⟳ &nbsp; Try Another Recipe</button></div>
+      </section>
+    </article>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
